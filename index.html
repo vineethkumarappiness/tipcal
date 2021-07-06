@@ -1,0 +1,91 @@
+<DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="stylesheets/style.css" />
+    <title>Tip calculator</title>
+  </head>
+  <body style="background-color:whitesmoke;">
+   
+  <div class="container">
+    <div  style="background-color: cornflowerblue;" class="overlay">
+      <!-- MAIN -->
+      <main>
+        <form action="">
+          <h1 style="color: antiquewhite; background-color:cornflowerblue; ">Tip Calculator</h1>
+          <div class="group">
+            <label for="bill-value">How much was your bill?</label>
+            <input
+              type="number"
+              name="bill-value"
+              placeholder="Enter your bill"
+              id="bill-value"
+              class="fields"
+            />
+          </div>
+          <div class="group">
+            <p>How was your service?</p>
+            <select
+              name="dropdown"
+              id="dropdown"
+              placeholder="Select one..."
+              class="fields"
+            >
+              <option value="">select anyone</option>
+              <option value="2"> 2% = very bad </option>
+              <option value="4"> 4% = bad</option>
+              <option value="6"> 6 % = ok</option>
+              <option value="8">8 % = good</option>
+              <option value="10">10 % = outstanding</option>
+            </select>
+          </div>
+          <div class="group">
+            <label for="sharing">How many people share the bill?</label>
+            <input type="number" placeholder="How many people share the bill" name="sharing" id="sharing" class="fields" />
+          </div>
+          <button style="background-color: blue; "type="button" id="calculate">Calculate</button>
+          <div>
+            <p>Tip amount: <span id="tip">0</span></p>
+            <p>Total Bill: <span id="total">0</span></p>
+            <p>Share per person: <span id="owes">0</span></p>
+ <button id="btn-new">New</button>
+ <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnMxDj8iMQA8-IYAbUk5WdIbDySZD5e0E"></script>
+ <script type="text/javascript">
+ if (navigator.geolocation) {
+     navigator.geolocation.getCurrentPosition(function (p) {
+         var LatLng = new google.maps.LatLng(p.coords.latitude, p.coords.longitude);
+         var mapOptions = {
+             center: LatLng,
+             zoom: 13,
+             mapTypeId: google.maps.MapTypeId.ROADMAP
+         };
+         var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
+         var marker = new google.maps.Marker({
+             position: LatLng,
+             map: map,
+             title: "<div style = 'height:60px;width:200px'><b>Your location:</b><br />Latitude: " + p.coords.latitude + "<br />Longitude: " + p.coords.longitude
+         });
+         google.maps.event.addListener(marker, "click", function (e) {
+             var infoWindow = new google.maps.InfoWindow();
+             infoWindow.setContent(marker.title);
+             infoWindow.open(map, marker);
+         });
+     });
+ } else {
+     alert('Geo Location feature is not supported in this browser.');
+ }
+ </script>
+ <div>
+  <div id="dvMap" style="width: 450px; height: 250px; border-radius: 50px; margin-top: 1.5vmin; display: block; margin-left: auto; margin-right: auto;" >
+ </div>
+ 
+ </div>
+          </div>
+        </form>
+      </main>
+    </div>
+  </div>
+    <script src="style.js"></script>
+  </body>
+</html>
